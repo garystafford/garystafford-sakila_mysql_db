@@ -18,14 +18,11 @@ class install_sakila_db (
   Exec {
     path => ['/bin', '/usr/bin'], }
 
-  # for debug output on the puppet master
-  notify { "destination_dir: ${destination_dir}": }
-
-  notify { "database: ${database}": }
-
-  notify { "mysql_command: ${mysql_command}": }
-
-  notify { "account: ${account}": }
+  # # for debug output on the puppet master
+  #  notify { "destination_dir: ${destination_dir}": }
+  #  notify { "database: ${database}": }
+  #  notify { "mysql_command: ${mysql_command}": }
+  #  notify { "account: ${account}": }
 
   wget::fetch { "http://downloads.mysql.com/docs/${database}.tar.gz":
     destination => "${destination_dir}/${database}.tar.gz",
