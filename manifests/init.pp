@@ -11,10 +11,11 @@
 # Sample Usage:
 #
 class install_sakila_db (
-  $destination_dir = '/tmp',
-  $database        = 'sakila-db',
-  $mysql_command   = 'mysql -u root -e',
-  $account         = 'root') {
+  $destination_dir   = '/tmp',
+  $database          = 'sakila-db',
+  $mysql_generic_cmd = 'mysql -u root -e',
+  # $mysql_specific_cmd = 'mysql -u root sakila -e',
+  $account           = 'root') {
   Exec {
     path => ['/bin', '/usr/bin'], }
 
@@ -29,7 +30,6 @@ class install_sakila_db (
     cache_dir   => '/var/cache/wget',
   } ->
   exec { 'sakila_tar':
-    onlyif  => 'sss',
     command => "tar zxvf ${database}.tar.gz",
     cwd     => $destination_dir,
     user    => $account,
@@ -37,13 +37,15 @@ class install_sakila_db (
     creates => "${destination_dir}/${database}"
   } ->
   exec { 'sakila_schema':
-    command => "${mysql_command} \"SOURCE ${destination_dir}/${database}/sakila-schema.sql;\"",
+    onlyif  => "${$mysql_generic_cmd} \"SELECT EXISTS(SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'sakila');\"",
+    command => "${$mysql_generic_cmd} \"SOURCE ${destination_dir}/${database}/sakila-schema.sql;\"",
     cwd     => $destination_dir,
     user    => $account,
     group   => $account,
   } ->
   exec { 'sakila_data':
-    command => "${mysql_command} \"SOURCE ${destination_dir}/${database}/sakila-data.sql;\"",
+    onlyif  => "${$mysql_generic_cmd} \"SELECT EXISTS(SELECT 1 FROM sakila.store);\"",
+    command => "${$mysql_generic_cmd} \"SOURCE ${destination_dir}/${database}/sakila-data.sql;\"",
     cwd     => $destination_dir,
     user    => $account,
     group   => $account,
