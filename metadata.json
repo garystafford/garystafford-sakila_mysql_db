@@ -17,7 +17,7 @@
 	"project_page": "",
 	"requirements": [],
 	"source": "https://github.com/garystafford/gstafford-install_sakila_db",
-	"summary": "Install the MySQL Sakila sample database",
+	"summary": "Downloads and installs the MySQL Sakila sample database",
 	"tags": [ "MySQL",
 		"Sakila",
 		"database"
