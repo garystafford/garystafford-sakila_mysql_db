@@ -18,7 +18,9 @@ class install_sakila_db (
   Exec {
     path => ['/bin', '/usr/bin'], }
 
-  service { "mysql": ensure => "running", } ->
+  include mysql::server
+
+  # service { "mysql": ensure => "running", } ->
   wget::fetch { "http://downloads.mysql.com/docs/${database}.tar.gz":
     destination => "${destination_dir}/${database}.tar.gz",
     cache_dir   => '/var/cache/wget',
