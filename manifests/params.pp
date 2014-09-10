@@ -13,8 +13,7 @@
 class install_sakila_db::params (
   $download_dir = '/tmp',
   $database_dir = 'sakila-db',
-  $mysql_cmd    = 'mysql -u root -e',
-  $account      = 'root') {
+  $mysql_cmd    = 'mysql -u root -e') {
   Exec {
     path => ['/bin', '/usr/bin'], }
 }
