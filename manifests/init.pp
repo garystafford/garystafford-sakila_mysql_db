@@ -11,13 +11,11 @@
 # Sample Usage:
 #
 class install_sakila_db (
-  $download_dir = '/tmp',
-  $database_dir = 'sakila-db',
-  $mysql_cmd    = 'mysql -u root -e',
-  $account      = 'root') {
-  Exec {
-    path => ['/bin', '/usr/bin'], }
-
+  $download_dir = $install_sakila_db::params::download_dir,
+  $database_dir = $install_sakila_db::params::database_dir,
+  $mysql_cmd    = $install_sakila_db::params::mysql_cmd,
+  $account      = $install_sakila_db::params::account) inherits 
+install_sakila_db::params {
   include mysql::server
 
   wget::fetch { "http://downloads.mysql.com/docs/${database_dir}.tar.gz":
