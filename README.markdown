@@ -1,6 +1,8 @@
 ##Puppet Module: Install MySQL Sakila Database#
 
-The 'install_sakila_db' Puppet module downloads and installs the MySQL Sakila example database onto an Ubuntu-based target node running MySQL. There are also classes included to drop the database and remove all install files. Note, if MySQL does not exist on target node, the 'install_sakila_db' class will install MySQL (currently version 5.5.x).
+The 'install_sakila_db' Puppet module downloads and installs the MySQL Sakila example database onto an Ubuntu-based target node running MySQL. Note, if MySQL does not exist on target node, the 'install_sakila_db' class will install MySQL using [puppetlabs-mysql](https://forge.puppetlabs.com/puppetlabs/mysql) module's mysql::server class (currently version 5.5.x).  
+
+There are also two classes provided, which can be used to drop the database and to remove all install files.
 
 #####Module Classes
 * install_sakila_db (init.pp) - Downloads and installs Sakila database
