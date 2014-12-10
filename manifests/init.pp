@@ -1,6 +1,6 @@
-# Class: install_sakila_db
+# Class: sakila_mysql_db
 #
-# This module manages install_sakila_db
+# This module manages sakila_mysql_db
 #
 # Parameters: none
 #
@@ -10,11 +10,10 @@
 #
 # Sample Usage:
 #
-class install_sakila_db (
-  $download_dir = $install_sakila_db::params::download_dir,
-  $database_dir = $install_sakila_db::params::database_dir,
-  $mysql_cmd    = $install_sakila_db::params::mysql_cmd) inherits 
-install_sakila_db::params {
+class sakila_mysql_db (
+  $download_dir = $sakila_mysql_db::params::download_dir,
+  $database_dir = $sakila_mysql_db::params::database_dir,
+  $mysql_cmd    = $sakila_mysql_db::params::mysql_cmd) inherits sakila_mysql_db::params {
   include mysql::server
 
   wget::fetch { "http://downloads.mysql.com/docs/${database_dir}.tar.gz":

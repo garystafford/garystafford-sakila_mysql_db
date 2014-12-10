@@ -1,6 +1,6 @@
-# Class: install_sakila_db::params
+# Class: sakila_mysql_db::params
 #
-# This module manages install_sakila_db
+# This module manages sakila_mysql_db
 #
 # Parameters: none
 #
@@ -10,7 +10,7 @@
 #
 # Sample Usage:
 #
-class install_sakila_db::params (
+class sakila_mysql_db::params (
   $download_dir = '/tmp',
   $database_dir = 'sakila-db',
   $mysql_cmd    = 'mysql -u root -e') {

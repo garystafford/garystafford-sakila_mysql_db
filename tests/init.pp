@@ -1,4 +1,4 @@
-# include install_sakila_db
-class { 'install_sakila_db':
+# include sakila_mysql_db
+class { 'sakila_mysql_db':
 }
 
