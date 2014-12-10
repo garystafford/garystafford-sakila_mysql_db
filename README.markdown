@@ -1,36 +1,44 @@
-##Puppet Module: Install MySQL Sakila Database#
+# fig #
 
-The 'install_sakila_db' Puppet module downloads and installs the MySQL Sakila example database onto an Ubuntu-based target node running MySQL. Note, if MySQL does not exist on target node, the 'install_sakila_db' class will install MySQL using [puppetlabs-mysql](https://forge.puppetlabs.com/puppetlabs/mysql) module's mysql::server class (currently version 5.5.x).  
+Puppet module for installing MySQL Sakila example database. The `sakila_mysql_db` Puppet module downloads and installs the MySQL Sakila example database onto an Ubuntu-based target node running MySQL. Note, if MySQL does not exist on target node, the `sakila_mysql_db` class will install MySQL using [puppetlabs-mysql](https://forge.puppetlabs.com/puppetlabs/mysql) module's `mysql::server` class (currently version 5.5.x).  
+There are also two other classes, `sakila_mysql_db::cleanup` and `sakila_mysql_db::uninstall`, which can be used to drop the database and to remove all install files.
 
-There are also two classes provided, which can be used to drop the database and to remove all install files.
+### Support
+This module is currently tested on:
+* Ubuntu 12.04
+* Ubuntu 14.04
+It may work on other distros...
 
-#####Module Classes
-* install_sakila_db (init.pp) - Downloads and installs Sakila database
-* install_sakila_db::params - Parameters inherited by all other classes
-* install_sakila_db::cleanup - Removes all files from download and install
-* install_sakila_db::uninstall - Drops the Sakila database from MySQL instance
+### Usage
+`include sakila_mysql_db`  
+`include sakila_mysql_db::uninstall`  
+`include sakila_mysql_db::cleanup`  
 
-#####Dependencies
-* install_sakila_db class (init.pp) depends on:
-  * [puppetlabs-mysql](https://forge.puppetlabs.com/puppetlabs/mysql) module - mysql::server class
-  * [maestrodev-wget](https://forge.puppetlabs.com/maestrodev/wget) module - wget::fetch class
+### Module Classes
+* `sakila_mysql_db` (`init.pp`) - Downloads and installs Sakila database
+* `sakila_mysql_db::params` - Parameters inherited by all other classes
+* `sakila_mysql_db::cleanup` - Removes all files from download and install
+* `sakila_mysql_db::uninstall` - Drops the Sakila database from MySQL instance
 
-#####Testing Install
-* On the node, run any of the following commands in the terminal:
-  * sudo service mysql status
-  * mysql -u root sakila -e "SHOW TABLES;"
-  * mysql -u root sakila -e "SELECT * FROM category;"  
+### Dependencies
+The `sakila_mysql_db` class (`init.pp`) depends on:
+* [puppetlabs-mysql](https://forge.puppetlabs.com/puppetlabs/mysql) module - `mysql::server class`
+* [maestrodev-wget](https://forge.puppetlabs.com/maestrodev/wget) module - `wget::fetch class`
 
-#####MySQL Links
+### Testing Install
+On the node, run any of the following commands in the terminal:
+* `sudo service mysql status`
+* `mysql -u root sakila -e "SHOW TABLES;"`
+* `mysql -u root sakila -e "SELECT * FROM category;"`  
+
+### MySQL Links
 * Example Databases: [http://dev.mysql.com/doc/index-other.html](http://dev.mysql.com/doc/index-other.html)
 * Sakila Documentation: [http://dev.mysql.com/doc/sakila/en/index.html](http://dev.mysql.com/doc/sakila/en/index.html)
 * Sakila Installation: [http://dev.mysql.com/doc/sakila/en/sakila-installation.html](http://dev.mysql.com/doc/sakila/en/sakila-installation.html)
 
-#####Removing MySQL
-* sudo apt-get remove --purge mysql-server mysql-client mysql-common
-* sudo apt-get autoremove
-* sudo apt-get autoclean
-* sudo reboot
-* sudo service mysql status
-
-
+### Removing MySQL
+* `sudo apt-get remove --purge mysql-server mysql-client mysql-common`
+* `sudo apt-get autoremove`
+* `sudo apt-get autoclean`
+* `sudo reboot`
+* `sudo service mysql status`
