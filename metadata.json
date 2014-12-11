@@ -20,7 +20,7 @@
 	"project_page": "https://github.com/garystafford/garystafford-sakila_mysql_db",
 	"requirements": [],
 	"source": "https://github.com/garystafford/garystafford-sakila_mysql_db",
-	"summary": "Downloads and installs the MySQL Sakila example database",
+	"summary": "Downloads and installs the MySQL Sakila example database http://dev.mysql.com/doc/sakila/en/)",
 	"tags": [ "MySQL",
 		"Sakila",
 		"database"
