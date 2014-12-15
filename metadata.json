@@ -8,7 +8,7 @@
 			"version_requirement": ">=2.3.1"
 		}
 	],
-	"license": "Licensed under (Apache 2.0)",
+	"license": "Apache-2.0",
 	"name": "garystafford-sakila_mysql_db",
 	"operatingsystem_support": [{
 			"operatingsystem": "Ubuntu",
@@ -20,10 +20,11 @@
 	"project_page": "https://github.com/garystafford/garystafford-sakila_mysql_db",
 	"requirements": [],
 	"source": "https://github.com/garystafford/garystafford-sakila_mysql_db",
+	"issues_url": "https://github.com/garystafford/garystafford-sakila_mysql_db/issuess",
 	"summary": "Downloads and installs the MySQL Sakila example database http://dev.mysql.com/doc/sakila/en/)",
 	"tags": [ "MySQL",
 		"Sakila",
 		"database"
 	],
-	"version": "0.3.0"
+	"version": "0.3.1"
 }

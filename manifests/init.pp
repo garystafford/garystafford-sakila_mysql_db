@@ -13,7 +13,8 @@
 class sakila_mysql_db (
   $download_dir = $sakila_mysql_db::params::download_dir,
   $database_dir = $sakila_mysql_db::params::database_dir,
-  $mysql_cmd    = $sakila_mysql_db::params::mysql_cmd) inherits sakila_mysql_db::params {
+  $mysql_cmd    = $sakila_mysql_db::params::mysql_cmd) inherits 
+sakila_mysql_db::params {
   include mysql::server
 
   wget::fetch { "http://downloads.mysql.com/docs/${database_dir}.tar.gz":
