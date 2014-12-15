@@ -2,6 +2,12 @@
 
 Change history for garystafford-sakila_mysql_db
 
+## 0.3.3
+
+Released 2014-12-14
+
+* Fixing incorrect issues url
+
 ## 0.3.2
 
 Released 2014-12-14
