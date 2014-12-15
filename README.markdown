@@ -7,7 +7,7 @@ There are also two other classes, `sakila_mysql_db::cleanup` and `sakila_mysql_d
 This module is currently tested on:
 * Ubuntu 12.04
 * Ubuntu 14.04
-It may work on other distros...
+It may work on other distros. You will need to test.
 
 ### Usage
 `include sakila_mysql_db`  
