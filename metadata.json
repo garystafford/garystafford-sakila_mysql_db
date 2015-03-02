@@ -2,7 +2,7 @@
 	"author": "Gary A. Stafford",
 	"dependencies": [{
 			"name": "maestrodev-wget",
-			"version_requirement": ">=1.5.2"
+			"version_requirement": ">=1.5.6"
 		},{
 			"name": "puppetlabs-mysql",
 			"version_requirement": ">=2.3.1"
