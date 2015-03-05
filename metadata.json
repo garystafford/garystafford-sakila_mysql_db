@@ -21,10 +21,10 @@
 	"requirements": [],
 	"source": "https://github.com/garystafford/garystafford-sakila_mysql_db",
 	"issues_url": "https://github.com/garystafford/garystafford-sakila_mysql_db/issues",
-	"summary": "Downloads and installs the MySQL Sakila example database http://dev.mysql.com/doc/sakila/en/)",
+	"summary": "Downloads and installs MySQL's Sakila sample database http://dev.mysql.com/doc/sakila/en)",
 	"tags": [ "MySQL",
 		"Sakila",
 		"database"
 	],
-	"version": "0.3.3"
+	"version": "0.3.4"
 }
