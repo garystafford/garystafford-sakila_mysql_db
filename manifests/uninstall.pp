@@ -11,7 +11,7 @@
 # Sample Usage:
 #
 class sakila_mysql_db::uninstall (
-  $mysql_cmd = $sakila_mysql_db::params::mysql_cmd,) inherits 
+  $mysql_cmd = $sakila_mysql_db::params::mysql_cmd) inherits 
 sakila_mysql_db::params {
   exec { 'sakila_import_schema':
     unless  => "${$mysql_cmd} \"SELECT EXISTS(SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'sakila');\"",
